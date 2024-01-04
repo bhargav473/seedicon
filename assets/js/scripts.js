@@ -266,39 +266,6 @@ $(function () {
     });
 
 
-    /* ===============================  crev slider  =============================== */
-
-    var galleryTextCrev = new Swiper('.crev-slider .gallery-text .swiper-container', {
-        spaceBetween: 30,
-        slidesPerView: 1,
-        loop: true,
-        speed: 1500,
-        navigation: {
-            nextEl: '.crev-slider .swiper-controls .swiper-button-next',
-            prevEl: '.crev-slider .swiper-controls .swiper-button-prev',
-        },
-        pagination: {
-            el: ".crev-slider .swiper-pagination",
-            type: "fraction",
-        },
-    });
-
-    var galleryImgCrev = new Swiper('.crev-slider .gallery-img .swiper-container', {
-        spaceBetween: 30,
-        slidesPerView: 1,
-        effect: 'fade',
-        loop: true,
-        speed: 1500,
-    });
-
-    galleryImgCrev.on("slideChangeTransitionStart", function () {
-        galleryTextCrev.slideTo(galleryImgCrev.activeIndex);
-    });
-    galleryTextCrev.on("transitionStart", function () {
-        galleryImgCrev.slideTo(galleryTextCrev.activeIndex);
-    });
-
-
     /* =============================================================================
     ------------------------------  Interactive work   -----------------------------
     ============================================================================= */
@@ -695,16 +662,6 @@ $(window).on("load", function () {
         itemSelector: '.items'
     });
 
-    // isotope
-    $('.gallery2').isotope({
-        // options
-        itemSelector: '.items',
-        masonry: {
-          // use element for option
-          columnWidth: '.width2'
-        }
-      });
-
     var $gallery = $('.gallery').isotope();
 
     $('.filtering').on('click', 'span', function () {
@@ -1067,7 +1024,7 @@ $(function () {
             var conf = {
 
                 pagination: {
-                    el: 'testim-swiper .swiper-pagination',
+                    el: '.swiper-pagination',
                     clickable: true,
                 },
 
@@ -1082,7 +1039,7 @@ $(function () {
             var conf = {
 
                 pagination: {
-                    el: 'testim-swiper .swiper-pagination',
+                    el: '.swiper-pagination',
                     clickable: true,
                 },
 
@@ -1135,6 +1092,16 @@ $(function () {
                         slidesPerView: 3,
                     },
                 }
+            };
+        };
+
+        if ($(this).hasClass('pagination')) {
+            var conf = {
+
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
             };
         };
 
@@ -1272,19 +1239,19 @@ $(function () {
        -------------------------------  Smooth contact   -------------------------------
        ============================================================================= */
 
-        gsap.set('.contact-container', { yPercent: -50 })
-        const cover = gsap.timeline({ paused: true })
-        cover
-            .to('.contact-container', { yPercent: 0, ease: 'none' })
-            ;
+       gsap.set('.contact-container', { yPercent: -50 })
+       const cover = gsap.timeline({ paused: true })
+       cover
+           .to('.contact-container', { yPercent: 0, ease: 'none' })
+           ;
 
-        ScrollTrigger.create({
-            trigger: '.main-box',
-            start: 'bottom bottom',
-            end: '+=50%',
-            animation: cover,
-            scrub: true,
-        });
+       ScrollTrigger.create({
+           trigger: '.main-box',
+           start: 'bottom bottom',
+           end: '+=50%',
+           animation: cover,
+           scrub: true,
+       });
 
 
         /* =============================================================================

@@ -112,6 +112,7 @@ a.frame__demo--current:hover {
   height: 100vh;
   position: relative;
   overflow: hidden;
+  color: #fff;
 }
 
 .slide {
